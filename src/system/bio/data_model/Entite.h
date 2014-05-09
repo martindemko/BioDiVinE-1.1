@@ -5,6 +5,8 @@
 #include <cmath>
 #include <sstream>
 #include <fstream>
+#include <limits>
+#include <iomanip>
 #include "Summember.h"
 #include "Model.h"
 
@@ -414,6 +416,23 @@ void Entite<T>::PutHp(std::string var, std::string theta, std::string a, std::st
     T aa = getNumberFromString(a);
     T bb = getNumberFromString(b);
     
+    T temp = std::numeric_limits<value_type>::epsilon();
+//    std::cout << "Step+(" << var << "," << std::setprecision(20) << th << "," << aa << "," << bb << ") into ";
+    T th2 = th + ( temp == 0 ? 1 : temp );
+//    std::cout << "Ramp+(" << var << "," << std::setprecision(20) << th << "," << th2 << "," << aa << "," << bb << ")\n";
+    
+    //saving new thresholds th and th2
+    model.AddThresholdName(var);
+    std::stringstream ss;
+    ss.precision(20);
+    ss << th;
+    model.AddThresholdValue(ss.str());
+    std::stringstream ss2;
+    ss2.precision(20);    
+    ss2 << th2;
+    model.AddThresholdValue(ss2.str());
+    
+
     if(aa > bb) {
     	T temp = aa;
     	aa = bb;
@@ -423,13 +442,14 @@ void Entite<T>::PutHp(std::string var, std::string theta, std::string a, std::st
     Summember<T> new_summember;
     for(uint i = 0; i < model.getVariables().size(); i++) {
         if(var.compare(model.getVariable(i)) == 0) {
-        	new_summember.AddStep(i + 1, th, aa, bb, true);
+//        	new_summember.AddStep(i + 1, th, aa, bb, true);
+			new_summember.AddRamp(i + 1, th, th2, aa, bb, false);
             AddSummember(new_summember);
             return;
         }
     }
     //TODO: i dont know what will happen if var wasn't find in variables
-    
+
 }
 
 template <typename T>
@@ -438,6 +458,23 @@ void Entite<T>::PutHm(std::string var, std::string theta, std::string a, std::st
 	T th = getNumberFromString(theta);
     T aa = getNumberFromString(a);
     T bb = getNumberFromString(b);
+   
+    T temp = std::numeric_limits<value_type>::epsilon();
+//    std::cout << "Step-(" << var << "," << std::setprecision(20) << th << "," << a << "," << b << ") into ";
+    T th2 = th + ( temp == 0 ? 1 : temp );
+//    std::cout << "Ramp-(" << var << "," << std::setprecision(20) << th << "," << th2 << "," << a << "," << b << ")\n";
+    
+    //saving new thresholds th and th2
+    model.AddThresholdName(var);
+    std::stringstream ss;
+    ss.precision(20);    
+    ss << th;
+    model.AddThresholdValue(ss.str());
+    std::stringstream ss2;
+    ss2.precision(20);    
+    ss2 << th2;
+    model.AddThresholdValue(ss2.str());
+        
     
     if(aa < bb) {
     	T temp = aa;
@@ -448,7 +485,8 @@ void Entite<T>::PutHm(std::string var, std::string theta, std::string a, std::st
     Summember<T> new_summember;
     for(uint i = 0; i < model.getVariables().size(); i++) {
         if(var.compare(model.getVariable(i)) == 0) {
-        	new_summember.AddStep(i + 1, th, aa, bb, false);
+//        	new_summember.AddStep(i + 1, th, aa, bb, false);
+			new_summember.AddRamp(i+1, th, th2, aa, bb, true);
             AddSummember(new_summember);
             return;
         }

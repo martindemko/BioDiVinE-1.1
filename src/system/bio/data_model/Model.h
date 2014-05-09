@@ -1138,9 +1138,6 @@ vector <double> Model<T>::optimalFastGlobalLinearApproximation2 (vector <double>
 	vector <vector <int> > father (n_points, vector <int> (n_segments, 0));
 	
 	
-	
-	
-	
 	for (int n=1; n < n_points; n++)
 	{
 		double temp = -1 * INFINITY;
@@ -1182,20 +1179,13 @@ vector <double> Model<T>::optimalFastGlobalLinearApproximation2 (vector <double>
 		}
 	}
 	
-	
-	
-	sx2[0] =          x[0] * x[0];
-	sx [0] =          x[0];
+	sx2[0] =  x[0] * x[0];
+	sx [0] =  x[0];
 	for (int ip=1; ip < n_points; ip++) 
 	{
 	    sx2[ip] = sx2[ip-1] + (x[ip] * x[ip]);
 	    sx [ip] = sx [ip-1]  + x[ip];
 	}
-	
-	cout << "ciao mondo !!!\n";
-	
-	
-	
     
 	double minErr, currErr;
 	int    minIndex;
@@ -1247,9 +1237,7 @@ vector <double> Model<T>::optimalFastGlobalLinearApproximation2 (vector <double>
     }         
 	
     vector <int>     ib (n_segments+1, 0  );
-    vector <double>  xb (n_segments+1, 0.0);
-	
-	
+    vector <double>  xb (n_segments+1, 0.0);	
 	
     ib[n_segments] = n_points-1;
     xb[n_segments] = x[ib[n_segments]];
@@ -1260,16 +1248,13 @@ vector <double> Model<T>::optimalFastGlobalLinearApproximation2 (vector <double>
 		xb[i] = x[ib[i]];
 		// cout << "x" << n_points - i << "=" << xb[i] << "\n";
     }         
-    
 	
     for (int i=0; i < n_segments + 1; i++)
     {
         cout << "x[" << i << "] =" << xb[i] << "\n";
-		
     }
 	
     return xb;
-	
 }
 
 

@@ -81,52 +81,12 @@ private:
             return out;
 		}
 	};
-/*
-	struct hill {
-	    std::size_t dim;		//Warning: index of var_name from Model.h but indexing from 1 (not 0)
-	    value_type theta;
-	    value_type n;
-	    value_type a;
-	    value_type b;
-	    bool positive;
-	    
-        hill() {}
-		hill(std::size_t dim, value_type theta, value_type n, value_type a, value_type b, bool positive = true)
-                    : dim(dim), theta(theta), n(n), a(a), b(b), positive(positive) {
-        	if( (positive && a > b) || (!positive && a < b) ) {
-        		value_type temp = a;
-        		this.a = b;
-        		this.b = temp;
-        	}
-        }
-        hill(const hill& s) : dim(s.dim), theta(s.theta), n(s.n), a(s.a), b(s.b), positive(s.positive) {}
-
-
-		value_type value(value_type value) const
-		{
-			value_type result = a + (b - a)*(std::pow(1.0,n) / (std::pow(1.0,n) + std::pow(theta/value,n))); 
-			return result;
-		}
-
-		friend std::ostream& operator<<(std::ostream& out, const hill& s) {
-		    if(s.positive)
-                out << "Hill(-)(";
-            else
-                out << "Hill(+)(";
-            out << s.dim - 1 << "," << s.theta << "," << s.n << "," << s.a << "," << s.b << ")";
-            return out;
-		}
-	};
-*/
 
 public:
 	Summember()
 		: constant(1), param(0)
 	{}
 	~Summember(){};
-
-	//struct ramp;
-	//struct sigmoid;
 
 	// Access methods
 	// GET
@@ -220,22 +180,7 @@ public:
 	void AddHill(size_t i) {
 		hills.push_back(i);
 	}
-/*
-	void AddHill(std::size_t dim, value_type theta, value_type n, value_type a, value_type b, bool positive = 1) {
-		hill s;
-		s.dim = dim;
-	    s.theta = theta;
-	    s.n = n;
-	    s.a = a;
-	    s.b = b;
-	    s.positive = positive;
-	    hills.push_back(s);
-	}
 
-	void AddHill(hill& new_) {
-	    hills.push_back(new_);
-	}
-*/
 	std::size_t hasParam() const
 	{
 		return (param != 0 ? 1 : 0);
