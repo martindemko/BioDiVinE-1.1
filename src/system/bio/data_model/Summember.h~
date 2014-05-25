@@ -221,12 +221,14 @@ template <typename T>
 std::vector< Summember<T> > Summember<T>::hillAbstraction(std::vector<ramp> ramps, std::size_t replacedIndex) {
 
     std::vector< Summember<T> > result;
+//    std::cout << "removing hill function with index " << replacedIndex-1 << " and size before is " << hills.size() <<"\n";
     for(std::vector<std::size_t>::iterator it = hills.begin(); it != hills.end(); it++) {
         if(*it == replacedIndex) {
             hills.erase(it);
             break;
         }
     }
+//    std::cout << "size after is " << hills.size() << "\n";
 
     for(int r = 0; r < ramps.size(); r++) {
         Summember<T> sum;
@@ -242,12 +244,14 @@ template <typename T>
 std::vector< Summember<T> > Summember<T>::sigmoidAbstraction(std::vector<ramp> ramps, std::size_t replacedIndex) {
 
     std::vector< Summember<T> > result;
+//    std::cout << "removing sigmoid with index " << replacedIndex-1 << " and size before is " << sigmoids.size() <<"\n";
     for(std::vector<std::size_t>::iterator it = sigmoids.begin(); it != sigmoids.end(); it++) {
         if(*it == replacedIndex) {
             sigmoids.erase(it);
             break;
         }
     }
+//    std::cout << "size after is " << sigmoids.size() << "\n";
 
     for(int r = 0; r < ramps.size(); r++) {
         Summember<T> sum;

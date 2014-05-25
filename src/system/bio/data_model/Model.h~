@@ -474,7 +474,7 @@ const std::vector<Summember<T> > Model<T>::getEquationForVariable(size_t varInde
 			return equations.at(i).second;
 		}
 	}
-	
+	//TODO: case of unexisting var or wrong index
 	return std::vector<Summember<T> >();
 }
 
@@ -582,6 +582,10 @@ std::vector<std::size_t> Model<T>::FindSigmoids(std::size_t dim) {
 template <typename T>
 void Model<T>::RunAbstraction(bool useFastApproximation)
 {
+    // dostane alebo si zoberie priamo ako class method vector so vsetkymi sigmoidami a rozdeli ich podla Vars do skupin
+    // postupne vsetky skupiny sigmoidov posle funkcii comuteThresholds, ktore zaroven ulozi medzi ostatne thresholdy
+    // nasledne podla tychto novych thresholdov vytvori rampy pre vsetky sigmoidy zo skupiny a ulozi medzi rampy
+    // nakoniec mozno zmaze sigmoidy ak uz nebudu treba
 
 	std::vector<std::vector<typename Summember<T>::ramp> > new_sigmoids_ramps;
 	std::vector<std::vector<typename Summember<T>::ramp> > new_hills_ramps;	
@@ -719,12 +723,12 @@ void Model<T>::RunAbstraction(bool useFastApproximation)
         for(int j = 0; j < equations.size(); j++) {
             if(dbg) std::cout << "in EQ " << j << "\n";
             int summsCounter = 0;
-            
             // for all summembers in one equation
             for(typename std::vector<Summember<T> >::iterator sit = equations.at(j).second.begin(); sit != equations.at(j).second.end(); sit++) {
-            
+            //for(int s = 0; s < equations.at(j).second.size(); s++) {
                 if(dbg) std::cout << "in Summember:" << summsCounter++ << "\n";
                 Summember<T> summ = *sit;
+                //Summember<T> summ = equations.at(j).second.at(s);
 
                 // for all sigmoids in one summember
                 for(int g = 0; g < summ.GetSigmoids().size(); g++) {
@@ -848,38 +852,38 @@ std::vector<double> Model<T>::computeThresholds(std::vector<std::size_t> s, std:
     	if(dbg) std::cout << "curve " << i << " size: " << curves.at(i).size() << std::endl;
     }
 
-    clock_t start, finish; 
-    double durationInSec;  
+    clock_t start, finish;          //TODO: neskor zmazat
+    double durationInSec;           //TODO: neskor zmazat
 
 
 	if(fast) {
 	
-		start = clock();   
+		start = clock();                //TODO: neskor zmazat
 		if(dbg) std::cout << "before fast approximation...\n";
 		segmentsPoints = optimalFastGlobalLinearApproximation2 (xPoints, curves, numOfSegments);
 		if(dbg) std::cout << "after fast approximation...\n";
 
-		finish = clock();  
-		durationInSec = (double)(finish - start) / CLOCKS_PER_SEC;      
-		if(dbg) std::cout << "duration = " << durationInSec << " sec. Found = ";
+		finish = clock();               //TODO: neskor zmazat
+		durationInSec = (double)(finish - start) / CLOCKS_PER_SEC;          //TODO: neskor zmazat
+		if(dbg) std::cout << "duration = " << durationInSec << " sec. Found = ";          //TODO: neskor zmazat
 		for(int i = 0; i < segmentsPoints.size(); i++)
 		    if(dbg) std::cout << segmentsPoints.at(i) << ",";
 		if(dbg) std::cout << std::endl;
 		
 	} else {
 
-		start = clock();
+		start = clock();                //TODO: neskor zmazat
 
 		if(dbg) std::cout << "before slow approximation...\n";
 		segmentsPoints = optimalGlobalLinearApproximation (xPoints, curves, numOfSegments);
 		if(dbg) std::cout << "after slow approximation...\n";
 
-		finish = clock();  
-		durationInSec = (double)(finish - start) / CLOCKS_PER_SEC;
-		if(dbg) std::cout << "duration = " << durationInSec << " sec. Found = "; 
-		for(int i = 0; i < segmentsPoints.size(); i++)          
-		    if(dbg) std::cout << segmentsPoints.at(i) << ",";   
-		if(dbg) std::cout << std::endl;                         
+		finish = clock();               //TODO: neskor zmazat
+		durationInSec = (double)(finish - start) / CLOCKS_PER_SEC;      //TODO: neskor zmazat
+		if(dbg) std::cout << "duration = " << durationInSec << " sec. Found = ";     //TODO: neskor zmazat
+		for(int i = 0; i < segmentsPoints.size(); i++)                  //TODO: neskor zmazat
+		    if(dbg) std::cout << segmentsPoints.at(i) << ",";                        //TODO: neskor zmazat
+		if(dbg) std::cout << std::endl;                                                   //TODO: neskor zmazat
 		
 	}
 
