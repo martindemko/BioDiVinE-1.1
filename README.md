@@ -20,6 +20,7 @@ For compilation of this package follow the instructions:
     make
     
 For success in this step, you need: 
+
     MPI - 1.2 or higher
     Autoconf - 2.61 or higher
     Automake - 1.10.1 or higher
