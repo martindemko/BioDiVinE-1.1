@@ -1130,7 +1130,7 @@ void affine_system_t::parse(std::string _token)
   size_t pos;
   std::queue<std::string> fields;
   std::queue<std::string> fields1;
-
+/*
   // ---- VARS ----
   if ((pos=_token.find("VARS:"))!=std::string::npos)
     {
@@ -1401,7 +1401,7 @@ void affine_system_t::parse(std::string _token)
       
     }
   
-
+*/
   // ---- process ----
   	if ((pos=_token.find("process"))!=std::string::npos)
     {
