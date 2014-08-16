@@ -1434,7 +1434,7 @@ void Parser::executeAction(int production)
          params.push_back(matched.substr(startPos,endPos - startPos));
          
          }
-         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos - 1));
+         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
          
          if(title.compare(1,1,"p") == 0) {
          if(title.size() == 2) {
@@ -1479,7 +1479,7 @@ void Parser::executeAction(int production)
          params.push_back(matched.substr(startPos,endPos - startPos));
          
          }
-         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos - 1));
+         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
          
          if(title.compare(1,1,"p") == 0) {
          if(title.size() == 2) {
@@ -1516,7 +1516,7 @@ void Parser::executeAction(int production)
          params.push_back(matched.substr(startPos,endPos - startPos));
          
          }
-         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - 1 - endPos));
+         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
          
          if(title.compare(1,1,"p") == 0) {
          ent.PutHp(params.at(0),params.at(1),params.at(2),params.at(3));
@@ -1545,7 +1545,7 @@ void Parser::executeAction(int production)
          params.push_back(matched.substr(startPos,endPos - startPos));
          
          }
-         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - 1 - endPos));
+         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
          
          if(title.compare(4,1,"p") == 0) {
          ent.PutHillp(params.at(0),params.at(1),params.at(2),params.at(3),params.at(4));
@@ -1598,7 +1598,7 @@ void Parser::executeAction(int production)
          params.push_back(matched.substr(startPos,endPos - startPos));
          
          }
-         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos - 1));
+         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
          
          if(title.compare(1,1,"p") == 0) {
          if(title.size() == 2) {
@@ -1644,7 +1644,7 @@ void Parser::executeAction(int production)
          params.push_back(matched.substr(startPos,endPos - startPos));
          
          }
-         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos - 1));
+         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
          
          if(title.compare(1,1,"p") == 0) {
          if(title.size() == 2) {
@@ -1682,7 +1682,7 @@ void Parser::executeAction(int production)
          params.push_back(matched.substr(startPos,endPos - startPos));
          
          }
-         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - 1 - endPos));
+         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
          
          if(title.compare(1,1,"p") == 0) {
          ent.PutHp(params.at(0),params.at(1),params.at(2),params.at(3));
@@ -1712,7 +1712,7 @@ void Parser::executeAction(int production)
          params.push_back(matched.substr(startPos,endPos - startPos));
          
          }
-         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - 1 - endPos));
+         params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
          
          if(title.compare(4,1,"p") == 0) {
          ent.PutHillp(params.at(0),params.at(1),params.at(2),params.at(3),params.at(4));
