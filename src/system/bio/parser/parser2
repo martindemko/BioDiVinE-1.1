@@ -309,7 +309,7 @@ ap:		NUMBER		{
                                 params.push_back(matched.substr(startPos,endPos - startPos));
                                 //std::cout << params.back() << ' ';        //TODO: zmazat
                             }
-                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos - 1));
+                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
                             //std::cout << params.back() << "\n";           //TODO: zmazat
 
                             if(title.compare(1,1,"p") == 0) {
@@ -354,7 +354,7 @@ ap:		NUMBER		{
                                 params.push_back(matched.substr(startPos,endPos - startPos));
                                 //std::cout << params.back() << " ";        //TODO: zmazat
                             }
-                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos - 1));
+                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
                             //std::cout << params.back() << "\n";           //TODO: zmazat
 
                             if(title.compare(1,1,"p") == 0) {
@@ -390,7 +390,7 @@ ap:		NUMBER		{
                                 params.push_back(matched.substr(startPos,endPos - startPos));
                                 //std::cout << params.back() << " ";        //TODO: zmazat
                             }
-                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - 1 - endPos));
+                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
                             //std::cout << params.back() << std::endl;      //TODO: zmazat
 
                             if(title.compare(1,1,"p") == 0) {
@@ -418,7 +418,7 @@ ap:		NUMBER		{
                                 params.push_back(matched.substr(startPos,endPos - startPos));
                                 //std::cout << params.back() << " ";        //TODO: zmazat
                             }
-                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - 1 - endPos));
+                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
                             //std::cout << params.back() << std::endl;      //TODO: zmazat
 
                             if(title.compare(4,1,"p") == 0) {
@@ -465,7 +465,7 @@ ap:		NUMBER		{
                                 params.push_back(matched.substr(startPos,endPos - startPos));
                                 //std::cout << params.back() << ' ';        //TODO: zmazat
                             }
-                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos - 1));
+                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
                             //std::cout << params.back() << "\n";           //TODO: zmazat
 
                             if(title.compare(1,1,"p") == 0) {
@@ -511,7 +511,7 @@ ap:		NUMBER		{
                                 params.push_back(matched.substr(startPos,endPos - startPos));
                                 //std::cout << params.back() << " ";        //TODO: zmazat
                             }
-                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos - 1));
+                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
                             //std::cout << params.back() << "\n";           //TODO: zmazat
 
                             if(title.compare(1,1,"p") == 0) {
@@ -548,7 +548,7 @@ ap:		NUMBER		{
                                 params.push_back(matched.substr(startPos,endPos - startPos));
                                 //std::cout << params.back() << " ";        //TODO: zmazat
                             }
-                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - 1 - endPos));
+                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
                             //std::cout << params.back() << std::endl;      //TODO: zmazat
 
                             if(title.compare(1,1,"p") == 0) {
@@ -577,7 +577,7 @@ ap:		NUMBER		{
                                 params.push_back(matched.substr(startPos,endPos - startPos));
                                 //std::cout << params.back() << " ";        //TODO: zmazat
                             }
-                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - 1 - endPos));
+                            params.push_back(matched.substr(++endPos,matched.find_first_of(")",endPos) - endPos));
                             //std::cout << params.back() << std::endl;      //TODO: zmazat
 
                             if(title.compare(4,1,"p") == 0) {
